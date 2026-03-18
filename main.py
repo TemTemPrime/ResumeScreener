@@ -38,4 +38,4 @@ if uploaded_files:
 
 
         match_percentage = round(score[0][0] * 100, 2)
-        st.write(f"Match Score: {match_percentage}%")
+        st.write(f"Your resume matches the job description by : {match_percentage}%")
