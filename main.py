@@ -13,7 +13,7 @@ assets  = load_model()
 model = assets['pipeline']
 resume_vectors = assets['resume_vectors']
 df = assets['original_df']
-uploaded_files = st.file_uploader("Upload PDF files", type=["pdf"], accept_multiple_files=True)
+
 def extract_text_from_pdf(file):
     pdf_reader = PyPDF2.PdfReader(file)
     text = ""
@@ -22,7 +22,7 @@ def extract_text_from_pdf(file):
     return text
 st.title("Resume Scoring")
 st.write("Paste Resume here")
-
+uploaded_files = st.file_uploader("Upload PDF files", type=["pdf"], accept_multiple_files=True)
 job_description = st.text_input("Job Description ")
 if uploaded_files and job_description:
     job_vector = model.transform([job_description])
