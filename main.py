@@ -26,7 +26,7 @@ uploaded_files = st.file_uploader("Upload PDF files", type=["pdf"], accept_multi
 job_description = st.text_input("Job Description ")
 if uploaded_files and job_description:
     job_vector = model.transform([job_description])
-results = []
+
 if uploaded_files:
     for uploaded_file in uploaded_files:
    
@@ -34,7 +34,7 @@ if uploaded_files:
         
         st.write(f"Processed: {uploaded_file.name}")
         new_resume_vector = model.transform([resume_text])
-        score = cosine_similarity(new_resume_vector, job_vector)
+score = cosine_similarity(new_resume_vector, job_vector)
 
 
 match_percentage = round(score[0][0] * 100, 2)
