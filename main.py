@@ -33,7 +33,7 @@ if uploaded_files:
         resume_text = extract_text_from_pdf(uploaded_file)
         
         st.write(f"Processed: {uploaded_file.name}")
-        new_resume_vector = model.transform([resume_text])
+new_resume_vector = model.transform([resume_text])
 score = cosine_similarity(new_resume_vector, job_vector)
 
 
